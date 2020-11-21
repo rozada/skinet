@@ -30,17 +30,17 @@ namespace Infrastructure.Data
             .ToListAsync();
         }
 
-        
-        async Task<IReadOnlyList<ProductType>> IProductRepository.GetProductTypesAsync()
-        {
-            return await _context.ProductTypes.ToListAsync();
-        }
-
-        async Task<IReadOnlyList<ProductBrand>> IProductRepository.GetProductBrandsAsync()
+         async Task<IReadOnlyList<ProductBrand>> IProductRepository.GetProductBrandsAsync()
         {
             return await _context.ProductBrands.ToListAsync();
         }
 
+       async Task<IReadOnlyList<ProductType>> IProductRepository.GetProductTypesAsync()
+        {
+            return await _context.ProductTypes.ToListAsync();
+        }
+
+       
 
 
     }
