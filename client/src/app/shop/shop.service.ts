@@ -24,7 +24,11 @@ export class ShopService {
     if (shopParams.typeId !== 0){
       params = params.append('typeId', shopParams.typeId.toString());
     }
-    
+
+    console.log(shopParams.search);
+    if (shopParams.search) {
+      params = params.append('search', shopParams.search);
+    }
     params = params.append('sort', shopParams.sort);
     params = params.append('pageIndex', shopParams.pageNumber.toString());
     params = params.append('pageIndex', shopParams.pageSize.toString());
@@ -36,6 +40,10 @@ export class ShopService {
           return response.body;
         })
       );
+  }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {
